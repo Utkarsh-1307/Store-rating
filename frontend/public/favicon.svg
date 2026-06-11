@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- Main warm gradient: yellow → orange → red -->
+    <radialGradient id="bgGlow" cx="38%" cy="38%" r="65%">
+      <stop offset="0%" stop-color="#FFE033" stop-opacity="0.95"/>
+      <stop offset="42%" stop-color="#FF7A00" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#FF2D55" stop-opacity="0.88"/>
+    </radialGradient>
+
+    <!-- Glass shine overlay -->
+    <linearGradient id="glassShine" x1="0%" y1="0%" x2="55%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.50"/>
+      <stop offset="45%" stop-color="#ffffff" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.00"/>
+    </linearGradient>
+
+    <!-- Outer diffuse glow -->
+    <filter id="outerGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <clipPath id="circleClip">
+      <circle cx="32" cy="32" r="27"/>
+    </clipPath>
+  </defs>
+
+  <!-- Outer soft diffuse halo -->
+  <circle cx="32" cy="32" r="31" fill="url(#bgGlow)" opacity="0.30" filter="url(#outerGlow)"/>
+
+  <!-- Main glass pill -->
+  <circle cx="32" cy="32" r="27" fill="url(#bgGlow)"/>
+
+  <!-- Glass highlight shine (top-left) -->
+  <ellipse cx="23" cy="20" rx="13" ry="9" fill="url(#glassShine)" clip-path="url(#circleClip)"/>
+
+  <!-- Glass border -->
+  <circle cx="32" cy="32" r="26.5" fill="none" stroke="rgba(255,255,255,0.40)" stroke-width="1.2"/>
+
+  <!-- Store building: body -->
+  <rect x="16" y="30" width="32" height="19" rx="1.5" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Store building: roof -->
+  <path d="M12 30 L19.5 22 L44.5 22 L52 30 Z" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Store building: door -->
+  <rect x="27.5" y="37.5" width="9" height="11.5" rx="1" fill="white" opacity="0.92"/>
+
+  <!-- Store building: left window -->
+  <rect x="17.5" y="32.5" width="6" height="5" rx="0.8" fill="white" opacity="0.78"/>
+
+  <!-- Store building: right window -->
+  <rect x="40.5" y="32.5" width="6" height="5" rx="0.8" fill="white" opacity="0.78"/>
+
+  <!-- Star badge (bottom-right of store icon) -->
+  <circle cx="44.5" cy="43.5" r="7.5" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.55)" stroke-width="1"/>
+  <!-- 5-point star -->
+  <path d="M44.5 38.2 L45.6 41.6 L49.2 41.6 L46.3 43.6 L47.4 47.0 L44.5 45.0 L41.6 47.0 L42.7 43.6 L39.8 41.6 L43.4 41.6 Z"
+        fill="white" opacity="0.95"/>
+
+  <!-- Accent dots (like the reference floating spheres) -->
+  <circle cx="52.5" cy="17" r="2.8" fill="#06C8FF" opacity="0.92"/>
+  <circle cx="52" cy="20.5" r="1.2" fill="#1E90FF" opacity="0.70"/>
+  <circle cx="13.5" cy="50" r="2.0" fill="#FF2D55" opacity="0.88"/>
+</svg>
